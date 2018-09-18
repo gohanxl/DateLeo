@@ -7,8 +7,7 @@ public class Persona1 {
 	private String nombre = "";
 	private String apellido = "";
 	private Integer dni = 0;
-	private Calendar fechaDeHoy = Calendar.getInstance();
-	private Calendar fechaDeNacimiento = Calendar.getInstance();
+	private Calendar fechaDeNacimiento;
 	private String sexo = "H";
 	private Double peso = 0.0;
 	private Double altura = 0.0;
@@ -24,7 +23,7 @@ public class Persona1 {
 		
 	}
 	
-	public Persona1(String nombre, String apellido, String sexo, Double peso, Double altura, Integer edad){ 
+	public Persona1(String nombre, String apellido, String sexo, Double peso, Double altura, Integer edad, Integer año, Integer mes, Integer dia){ 
 	
 		this.nombre = nombre;
 		this.apellido = apellido;
@@ -32,13 +31,15 @@ public class Persona1 {
 		this.peso = peso;
 		this.altura = altura;
 		this.edad = edad;
+		this.getFechaDeNacimiento().set(año, mes, dia);
 
 	}
-	
+
 	public Persona1(String nombre, Integer edad, String sexo) {
 		this.nombre = nombre;
 		this.sexo = sexo;
 		this.edad = edad;
+		this.fechaDeNacimiento.set(1997, 10, 4);
 	}
 	
 	public Double calcularIMC () {
@@ -59,10 +60,7 @@ public class Persona1 {
 	
 	public Boolean esMayorDeEdad() {
 		
-		this.fechaDeNacimiento.set(1997, 10, 4);
-		this.fechaDeHoy.getTime();
-		
-		Integer diferenciaDeAnios = fechaDeHoy.get(Calendar.YEAR) - fechaDeNacimiento.get(Calendar.YEAR); 
+		Integer diferenciaDeAnios = Calendar.getInstance().get(Calendar.YEAR) - fechaDeNacimiento.get(Calendar.YEAR); 
 		
 		if (diferenciaDeAnios > 18) {
 			mayorDeEdad = true;
@@ -154,6 +152,14 @@ public class Persona1 {
 		return masaSobre;
 	}
 
+	
+	public Calendar getFechaDeNacimiento() {
+		return fechaDeNacimiento;
+	}
+
+	public void setFechaDeNacimiento(Calendar fechaDeNacimiento) {
+		this.fechaDeNacimiento = fechaDeNacimiento;
+	}
 	
 	
 	@Override
