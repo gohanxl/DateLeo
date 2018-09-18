@@ -9,11 +9,12 @@ public class TestPersona {
 	@Test
 	public void estaEnSuPesoIdeal(){
 		
-		Persona1 Roberto = new Persona1("Roberto", "Sanchez", "H", 80.00, 1.78, 40);
+		
+		Persona1 Roberto = new Persona1("Roberto", "Lac", "H", 80.00, 1.80, 20);
 		
 		Roberto.calcularIMC();
 		
-		Integer valorEsperado = 1;
+		Integer valorEsperado = 0;
 		Integer valorObtenido = Roberto.tipoIMC();
 		
 		
@@ -21,5 +22,15 @@ public class TestPersona {
 		assertEquals(valorEsperado, valorObtenido);
 	}
 	
+	@Test
+	public void esMayorDeEdad(){
+		
+		
+		Persona1 Lucas = new Persona1("Lucas", "Lac", "H", 80.00, 1.80, 20);
+		
+		
+		assertTrue(Lucas.esMayorDeEdad());
+		
+	}	
 	
 }

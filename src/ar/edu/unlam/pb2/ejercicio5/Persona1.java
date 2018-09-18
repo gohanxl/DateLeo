@@ -1,25 +1,30 @@
 package ar.edu.unlam.pb2.ejercicio5;
 
+import java.util.Calendar;
+import java.util.Date;
+
 public class Persona1 {
 	private String nombre = "";
 	private String apellido = "";
 	private Integer dni = 0;
-	private String fechaDeNacimiento = "";
+	private Calendar fechaDeHoy = Calendar.getInstance();
+	private Calendar fechaDeNacimiento = Calendar.getInstance();
 	private String sexo = "H";
 	private Double peso = 0.0;
 	private Double altura = 0.0;
 	private Double masaMuscular = 0.0;
-	private Integer edad = 0;
+	private Integer edad;
 	private final Integer masaMala = -1;
 	private final Integer masaNormal = 0;
 	private final Integer masaSobre = 1;
 	private Boolean mayorDeEdad = true;
 
+
 	public Persona1() {
 		
 	}
 	
-	public Persona1(String nombre, String apellido, String sexo, Double peso, Double altura, Integer edad) { 
+	public Persona1(String nombre, String apellido, String sexo, Double peso, Double altura, Integer edad){ 
 	
 		this.nombre = nombre;
 		this.apellido = apellido;
@@ -27,6 +32,7 @@ public class Persona1 {
 		this.peso = peso;
 		this.altura = altura;
 		this.edad = edad;
+
 	}
 	
 	public Persona1(String nombre, Integer edad, String sexo) {
@@ -52,7 +58,13 @@ public class Persona1 {
 	}
 	
 	public Boolean esMayorDeEdad() {
-		if (edad > 18) {
+		
+		this.fechaDeNacimiento.set(1997, 10, 4);
+		this.fechaDeHoy.getTime();
+		
+		Integer diferenciaDeAnios = fechaDeHoy.get(Calendar.YEAR) - fechaDeNacimiento.get(Calendar.YEAR); 
+		
+		if (diferenciaDeAnios > 18) {
 			mayorDeEdad = true;
 		}
 		else {
@@ -149,6 +161,7 @@ public class Persona1 {
 		return "Persona1 [nombre=" + nombre + ", apellido=" + apellido + ", dni=" + dni + ", sexo=" + sexo + ", peso="
 				+ peso + ", altura=" + altura + ", masaMuscular=" + masaMuscular + ", masaMala=" + masaMala
 				+ ", masaNormal=" + masaNormal + ", masaSobre=" + masaSobre + ", mayorDeEdad=" + mayorDeEdad + "]";
+		
 	}
 	
 }
