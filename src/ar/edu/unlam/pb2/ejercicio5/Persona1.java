@@ -7,7 +7,7 @@ public class Persona1 {
 	private String nombre = "";
 	private String apellido = "";
 	private Integer dni = 0;
-	private Calendar fechaDeNacimiento;
+	private Calendar fechaDeNacimiento = Calendar.getInstance();
 	private String sexo = "H";
 	private Double peso = 0.0;
 	private Double altura = 0.0;
@@ -23,23 +23,21 @@ public class Persona1 {
 		
 	}
 	
-	public Persona1(String nombre, String apellido, String sexo, Double peso, Double altura, Integer edad, Integer año, Integer mes, Integer dia){ 
+	public Persona1(String nombre, String apellido, String sexo, Double peso, Double altura, Integer anio, Integer mes, Integer dia){ 
 	
 		this.nombre = nombre;
 		this.apellido = apellido;
 		this.sexo = sexo;
 		this.peso = peso;
 		this.altura = altura;
-		this.edad = edad;
-		this.getFechaDeNacimiento().set(año, mes, dia);
+		this.getFechaDeNacimiento().set(anio, mes, dia);
 
 	}
 
-	public Persona1(String nombre, Integer edad, String sexo) {
+	public Persona1(String nombre, String sexo, Integer anio, Integer mes, Integer dia) {
 		this.nombre = nombre;
 		this.sexo = sexo;
-		this.edad = edad;
-		this.fechaDeNacimiento.set(1997, 10, 4);
+		this.getFechaDeNacimiento().set(anio, mes, dia);
 	}
 	
 	public Double calcularIMC () {

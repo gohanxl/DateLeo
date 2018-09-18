@@ -10,7 +10,7 @@ public class TestPersona {
 	public void estaEnSuPesoIdeal(){
 		
 		
-		Persona1 Roberto = new Persona1("Roberto", "Lac", "H", 80.00, 1.80, 20, 1997, 10, 4);
+		Persona1 Roberto = new Persona1("Roberto", "Lac", "H", 80.00, 1.80, 1997, 10, 4);
 		
 		Roberto.calcularIMC();
 		
@@ -26,7 +26,7 @@ public class TestPersona {
 	public void esMayorDeEdad(){
 		
 		
-		Persona1 Lucas = new Persona1("Lucas", "Lac", "H", 80.00, 1.80, 21, 1997, 15, 8);
+		Persona1 Lucas = new Persona1("Lucas", "Lac", "H", 80.00, 1.80, 1997, 15, 8);
 		
 		
 		assertTrue(Lucas.esMayorDeEdad());
